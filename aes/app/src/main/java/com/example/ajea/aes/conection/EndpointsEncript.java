@@ -1,17 +1,20 @@
 package com.example.ajea.aes.conection;
 
-import com.example.ajea.aes.beans.BodyEncript;
-import com.example.ajea.aes.beans.ResultEncript;
+import com.example.ajea.aes.beans.MessageEncript;
 
-import retrofit.Call;
-import retrofit.http.Body;
-import retrofit.http.POST;
+import retrofit2.Call;
+import retrofit2.http.Body;
+import retrofit2.http.POST;
+
 
 /**
  * Created by ajea on 26/05/16.
  */
 public interface EndpointsEncript {
 
-    @POST("crypto/test")
-    Call<ResultEncript> getencript(@Body BodyEncript bodyEncript);
+    @POST("/crypto/data/test")
+    Call<MessageEncript> getencript(@Body String data);
+
+    @POST("crypto/data/decrypt/test")
+    Call<MessageEncript> getDesencript(@Body MessageEncript messageEncript);
 }
